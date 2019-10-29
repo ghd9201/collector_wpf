@@ -1,0 +1,264 @@
+﻿<Window x:Class="Collector.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Collector"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal" 
+        TextOptions.TextRenderingMode="Auto"        
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        mc:Ignorable="d" Height="720" Width="1200" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None" Foreground="White" >
+
+    <Grid Background="LightGray" >
+        <Grid Height="90" VerticalAlignment="Top" Margin="-1,0,1,0" Background="#FF79ACCF">
+            <TextBlock Text="Information Security Rating System" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="36" Foreground="#DDFFFFFF" FontWeight="Bold"></TextBlock>
+            <StackPanel VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Right">
+                <materialDesign:PopupBox HorizontalAlignment="Right" Margin="10" PlacementMode="BottomAndAlignRightEdges" StaysOpen="False" Foreground="#DDFFFFFF">
+                    <StackPanel Width="150">
+                        <Button Content="Accounts"/>
+                        <Button Content="Settings"/>
+                        <Button Content="Help"/>
+                        <Separator/>
+                        <Button x:Name="ButtonPopupLogout" Content="Logout" Click="ButtonPopupLogout_Click"/>
+                    </StackPanel>
+                </materialDesign:PopupBox>
+            </StackPanel>
+        </Grid>
+        <Grid x:Name="GridMenu" Width="250" Height="630" VerticalAlignment="Bottom" HorizontalAlignment="Left" Background="#FF2179B6">
+            <StackPanel Margin="0 20 0 0 ">
+                <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled" Foreground="#FF79ACCF">
+                    <ListViewItem Height="60" x:Name="HomeMenu" MouseDoubleClick="ListViewItem_MouseDoubleClick">
+                        <StackPanel Orientation="Horizontal">
+                            <Button x:Name="HomeMenuBotton" Content="HomeBotton" Click="HomeMenuBotton_Click" Visibility="Collapsed"/>
+                            <materialDesign:PackIcon Kind="ViewDashboard" Width="25" Height="25" Margin="10" VerticalAlignment="Center"></materialDesign:PackIcon>
+                            <TextBlock Text="Home" FontSize="25" FontWeight="Bold" VerticalAlignment="Center" Margin="20 10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="60">
+                        <StackPanel Orientation="Horizontal">
+                            <Button x:Name="RatingMenuBotton" Content="RatingBotton" Click="RatingMenuBotton_Click" Visibility="Collapsed"/>
+                            <materialDesign:PackIcon Kind="RateReview" Margin="10" Width="25" Height="25" VerticalAlignment="Center"></materialDesign:PackIcon>
+                            <TextBlock Text="Rating" FontSize="25" FontWeight="Bold" VerticalAlignment="Center" Margin="20 10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="60">
+                        <StackPanel Orientation="Horizontal">
+                            <Button x:Name="FixMenuBotton" Content="FixBotton" Click="FixMenuBotton_Click" Visibility="Collapsed"/>
+                            <materialDesign:PackIcon Kind="BellAlert" Margin="10" Width="25" Height="25" VerticalAlignment="Center"></materialDesign:PackIcon>
+                            <TextBlock Text="Fix" FontSize="25" FontWeight="Bold" VerticalAlignment="Center" Margin="20 10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="60">
+                        <StackPanel Orientation="Horizontal">
+                            <Button x:Name="ImprovementMenuBotton" Content="ImprovementBotton" Click="ImprovementMenuBotton_Click" Visibility="Collapsed"/>
+                            <materialDesign:PackIcon Kind="Check" Margin="10" Width="25" Height="25" VerticalAlignment="Center"></materialDesign:PackIcon>
+                            <TextBlock Text="Improvement" FontSize="25" FontWeight="Bold" VerticalAlignment="Center" Margin="20 10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="60">
+                        <StackPanel Orientation="Horizontal">
+                            <Button x:Name="HistoryMenuBotton" Content="HistoryBotton" Click="HistoryMenuBotton_Click" Visibility="Collapsed"/>
+                            <materialDesign:PackIcon Kind="Calendar" Margin="10" Width="25" Height="25" VerticalAlignment="Center"></materialDesign:PackIcon>
+                            <TextBlock Text="History" FontSize="25" FontWeight="Bold" VerticalAlignment="Center" Margin="20 10"/>
+                        </StackPanel>
+                    </ListViewItem>
+                </ListView>
+            </StackPanel>
+            <Grid x:Name="Logo" Width="250" Height="100" VerticalAlignment="Bottom" HorizontalAlignment="Left">
+                <Grid.Background>
+                    <ImageBrush ImageSource="E:\forensics\Collector2\Collector\image\logo.jpg"/>
+                </Grid.Background>
+
+            </Grid>
+        </Grid>
+        <Grid x:Name="HomeContents" Width="950" Height="630" HorizontalAlignment="Right" VerticalAlignment="Bottom" >
+        </Grid>
+        <Grid x:Name="RateContents" Width="950" Height="630" HorizontalAlignment="Right" VerticalAlignment="Bottom" Visibility="Collapsed">
+            <Grid x:Name="RateTopContents" Width="950" Height="100" HorizontalAlignment="Right" VerticalAlignment="Top">
+                <Grid x:Name="LeftTopContents" Width="500" Height="100" HorizontalAlignment="Left" VerticalAlignment="Top">
+                    <TextBlock Text="User : " Width="200" HorizontalAlignment="Left" FontSize="30" FontWeight="Bold" VerticalAlignment="Top" Margin="20 10"/>
+                    <TextBlock Text="TestUsr01" Width="250" HorizontalAlignment="Right" FontSize="30" FontWeight="Bold" VerticalAlignment="Top" Margin="20 10"/>
+                    <TextBlock Text="Rate Date : " Width="200" HorizontalAlignment="Left" FontSize="30" FontWeight="Bold" VerticalAlignment="Bottom" Margin="20 10"/>
+                    <TextBlock Text="2019.10.29" Width="250" HorizontalAlignment="Right" FontSize="30" FontWeight="Bold" VerticalAlignment="Bottom" Margin="20 10"/>
+                </Grid>
+                <Grid x:Name="RightTopContents" Width="450" Height="100" HorizontalAlignment="Right" VerticalAlignment="Top">
+                    <TextBlock Text="IP Address : " Width="200" HorizontalAlignment="Left" FontSize="30" FontWeight="Bold" VerticalAlignment="Top" Margin="20 10"/>
+                    <TextBlock Text="192.168.0.1" Width="220" HorizontalAlignment="Right" FontSize="30" FontWeight="Bold" VerticalAlignment="Top" Margin="20 10"/>
+                    <TextBlock Text="Result : " Width="200" HorizontalAlignment="Left" FontSize="30" FontWeight="Bold" VerticalAlignment="Bottom" Margin="20 10"/>
+                    <TextBlock Text="Bad" Width="220" HorizontalAlignment="Right" FontSize="30" FontWeight="Bold" VerticalAlignment="Bottom" Margin="20 10"/>
+                </Grid>
+            </Grid>
+            <Grid x:Name="RateMainContents" Width="950" Height="530" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+                <DataGrid x:Name="resultData" Margin="20"
+                          AutoGenerateColumns="False"
+                          SelectionMode="Single"
+                          AlternationCount="2"
+                          AlternatingRowBackground="LightGray" >
+                    <DataGrid.ColumnHeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="Background" Value="Gray"/>
+                            <Setter Property="Foreground" Value="White"/>
+                            <Setter Property="FontSize" Value="24"/>
+                            <Setter Property="FontWeight" Value="Bold"/>
+                        </Style>
+                    </DataGrid.ColumnHeaderStyle>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn
+                            Binding="{Binding Elements}"
+                            Header="Elements"
+                            Width="300"
+                            IsReadOnly="True"/>
+                        <DataGridTextColumn
+                            Binding="{Binding Status}"
+                            Header="Status"
+                            Width="100"/>
+                        <DataGridTextColumn
+                            Binding="{Binding Score}"
+                            Header="Score"
+                            Width="100"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </Grid>
+        <Grid x:Name="FixContents" Width="950" Height="630" HorizontalAlignment="Right" VerticalAlignment="Bottom" Visibility="Collapsed">
+            <Grid x:Name="GoodContents" Width="950" Height="300" HorizontalAlignment="Right" VerticalAlignment="Top">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="43*"/>
+                    <RowDefinition Height="32*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Margin="10,10,0,136.58" Text="Good" Foreground="DimGray" FontSize="20" FontWeight="Bold"  HorizontalAlignment="Left"></TextBlock>
+                <DataGrid x:Name="goodData" Margin="10 35 10 0"
+                          AutoGenerateColumns="False"
+                          SelectionMode="Single"
+                          AlternationCount="2"
+                          AlternatingRowBackground="LightGray" Background="WhiteSmoke" Grid.RowSpan="2"
+                          >
+                    <DataGrid.ColumnHeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="Background" Value="Gray"/>
+                            <Setter Property="Foreground" Value="White"/>
+                            <Setter Property="FontSize" Value="24"/>
+                            <Setter Property="FontWeight" Value="Bold"/>
+                        </Style>
+                    </DataGrid.ColumnHeaderStyle>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn
+                            Binding="{Binding Elements}"
+                            Header="Elements"
+                            Width="500"
+                            IsReadOnly="True"/>
+                        <DataGridTextColumn
+                            Binding="{Binding Status}"
+                            Header="Status"
+                            Width="100"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+            <Grid x:Name="BadContents" Width="950" Height="330" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+                <TextBlock Margin="10,10,0,292" Text="Bad" Foreground="DimGray" FontSize="20" FontWeight="Bold"  HorizontalAlignment="Left"></TextBlock>
+                <DataGrid x:Name="badData" Margin="10 35 10 10"
+                          AutoGenerateColumns="False"
+                          SelectionMode="Single"
+                          AlternationCount="2"
+                          AlternatingRowBackground="LightGray" Background="WhiteSmoke">
+                    <DataGrid.ColumnHeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="Background" Value="Gray"/>
+                            <Setter Property="Foreground" Value="White"/>
+                            <Setter Property="FontSize" Value="24"/>
+                            <Setter Property="FontWeight" Value="Bold"/>
+                        </Style>
+                    </DataGrid.ColumnHeaderStyle>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn
+                            Binding="{Binding Elements}"
+                            Header="Elements"
+                            Width="400"
+                            IsReadOnly="True"/>
+                        <DataGridTextColumn
+                            Binding="{Binding Status}"
+                            Header="Status"
+                            Width="100"/>
+                        <DataGridTextColumn
+                            Binding="{Binding Advice}"
+                            Header="Advice"
+                            Width="100"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </Grid>
+        <Grid x:Name="ImprovementContents" Width="950" Height="630" HorizontalAlignment="Right" VerticalAlignment="Bottom" Visibility="Collapsed" >
+            <Grid x:Name="TopContents" Width="950" Height="300" HorizontalAlignment="Right" VerticalAlignment="Top">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="43*"/>
+                    <RowDefinition Height="32*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Margin="10,10,0,136.58" Text="Improvement" Foreground="DimGray" FontSize="20" FontWeight="Bold"  HorizontalAlignment="Left"></TextBlock>
+                <DataGrid x:Name="TopData" Margin="10 35 10 0"
+                          AutoGenerateColumns="False"
+                          SelectionMode="Single"
+                          AlternationCount="2"
+                          AlternatingRowBackground="LightGray" Background="WhiteSmoke" Grid.RowSpan="2"
+                          >
+                    <DataGrid.ColumnHeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="Background" Value="Gray"/>
+                            <Setter Property="Foreground" Value="White"/>
+                            <Setter Property="FontSize" Value="24"/>
+                            <Setter Property="FontWeight" Value="Bold"/>
+                        </Style>
+                    </DataGrid.ColumnHeaderStyle>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn
+                            Binding="{Binding Elements}"
+                            Header="Elements"
+                            Width="500"
+                            IsReadOnly="True"/>
+                        <DataGridTextColumn
+                            Binding="{Binding Status}"
+                            Header="Status"
+                            Width="100"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+            <Grid x:Name="BottomContents" Width="950" Height="330" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+                <TextBlock Margin="10,10,0,292" Text="Not Yet" Foreground="DimGray" FontSize="20" FontWeight="Bold"  HorizontalAlignment="Left"></TextBlock>
+                <DataGrid x:Name="BottomData" Margin="10 35 10 10"
+                          AutoGenerateColumns="False"
+                          SelectionMode="Single"
+                          AlternationCount="2"
+                          AlternatingRowBackground="LightGray" Background="WhiteSmoke"
+                          >
+                    <DataGrid.ColumnHeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="Background" Value="Gray"/>
+                            <Setter Property="Foreground" Value="White"/>
+                            <Setter Property="FontSize" Value="24"/>
+                            <Setter Property="FontWeight" Value="Bold"/>
+                        </Style>
+                    </DataGrid.ColumnHeaderStyle>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn
+                            Binding="{Binding Elements}"
+                            Header="Elements"
+                            Width="400"
+                            IsReadOnly="True"/>
+                        <DataGridTextColumn
+                            Binding="{Binding Status}"
+                            Header="Status"
+                            Width="100"/>
+                        <DataGridTextColumn
+                            Binding="{Binding Advice}"
+                            Header="Advice"
+                            Width="100"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
