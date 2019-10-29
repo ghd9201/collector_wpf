@@ -30,32 +30,52 @@ namespace Collector
             Application.Current.Shutdown();
         }
 
-        private void ListViewItem_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-
-        }
-
         private void HistoryMenuBotton_Click(object sender, RoutedEventArgs e)
         {
-
+            HomeContents.Visibility = Visibility.Collapsed;
+            RateContents.Visibility = Visibility.Collapsed;
+            FixContents.Visibility = Visibility.Collapsed;
+            ImprovementContents.Visibility = Visibility.Collapsed;
+            //HistoryContents.Visibility = Visibility.Visible;
         }
 
         private void ImprovementMenuBotton_Click(object sender, RoutedEventArgs e)
         {
-
+            HomeContents.Visibility = Visibility.Collapsed;
+            RateContents.Visibility = Visibility.Collapsed;
+            FixContents.Visibility = Visibility.Collapsed;
+            ImprovementContents.Visibility = Visibility.Visible;
+            //HistoryContents.Visibility = Visibility.Collapsed;
         }
 
         private void FixMenuBotton_Click(object sender, RoutedEventArgs e)
         {
-
+            HomeContents.Visibility = Visibility.Collapsed;
+            RateContents.Visibility = Visibility.Collapsed;
+            FixContents.Visibility = Visibility.Visible;
+            ImprovementContents.Visibility = Visibility.Collapsed;
+            //HistoryContents.Visibility = Visibility.Collapsed;
         }
 
         private void RatingMenuBotton_Click(object sender, RoutedEventArgs e)
         {
-
+            HomeContents.Visibility = Visibility.Collapsed;
+            RateContents.Visibility = Visibility.Visible;
+            FixContents.Visibility = Visibility.Collapsed;
+            ImprovementContents.Visibility = Visibility.Collapsed;
+            //HistoryContents.Visibility = Visibility.Collapsed;
         }
 
         private void HomeMenuBotton_Click(object sender, RoutedEventArgs e)
+        {
+            HomeContents.Visibility = Visibility.Visible;
+            RateContents.Visibility = Visibility.Collapsed;
+            FixContents.Visibility = Visibility.Collapsed;
+            ImprovementContents.Visibility = Visibility.Collapsed;
+            //HistoryContents.Visibility = Visibility.Collapsed;
+        }
+
+        private void TextBlock_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
 
         }

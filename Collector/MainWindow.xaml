@@ -32,37 +32,32 @@
         <Grid x:Name="GridMenu" Width="250" Height="630" VerticalAlignment="Bottom" HorizontalAlignment="Left" Background="#FF2179B6">
             <StackPanel Margin="0 20 0 0 ">
                 <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled" Foreground="#FF79ACCF">
-                    <ListViewItem Height="60" x:Name="HomeMenu" MouseDoubleClick="ListViewItem_MouseDoubleClick">
-                        <StackPanel Orientation="Horizontal">
-                            <Button x:Name="HomeMenuBotton" Content="HomeBotton" Click="HomeMenuBotton_Click" Visibility="Collapsed"/>
+                    <ListViewItem Height="60" x:Name="HomeMenu">
+                        <StackPanel Orientation="Horizontal" MouseLeftButtonDown="HomeMenuBotton_Click">
                             <materialDesign:PackIcon Kind="ViewDashboard" Width="25" Height="25" Margin="10" VerticalAlignment="Center"></materialDesign:PackIcon>
-                            <TextBlock Text="Home" FontSize="25" FontWeight="Bold" VerticalAlignment="Center" Margin="20 10"/>
+                            <TextBlock Text="Home" FontSize="25" FontWeight="Bold" VerticalAlignment="Center" Margin="20 10"  />
                         </StackPanel>
                     </ListViewItem>
                     <ListViewItem Height="60">
-                        <StackPanel Orientation="Horizontal">
-                            <Button x:Name="RatingMenuBotton" Content="RatingBotton" Click="RatingMenuBotton_Click" Visibility="Collapsed"/>
+                        <StackPanel Orientation="Horizontal" MouseLeftButtonDown="RatingMenuBotton_Click">
                             <materialDesign:PackIcon Kind="RateReview" Margin="10" Width="25" Height="25" VerticalAlignment="Center"></materialDesign:PackIcon>
-                            <TextBlock Text="Rating" FontSize="25" FontWeight="Bold" VerticalAlignment="Center" Margin="20 10"/>
+                            <TextBlock Text="Rating" FontSize="25" FontWeight="Bold" VerticalAlignment="Center" Margin="20 10" />
                         </StackPanel>
                     </ListViewItem>
                     <ListViewItem Height="60">
-                        <StackPanel Orientation="Horizontal">
-                            <Button x:Name="FixMenuBotton" Content="FixBotton" Click="FixMenuBotton_Click" Visibility="Collapsed"/>
+                        <StackPanel Orientation="Horizontal" MouseLeftButtonDown="FixMenuBotton_Click">
                             <materialDesign:PackIcon Kind="BellAlert" Margin="10" Width="25" Height="25" VerticalAlignment="Center"></materialDesign:PackIcon>
                             <TextBlock Text="Fix" FontSize="25" FontWeight="Bold" VerticalAlignment="Center" Margin="20 10"/>
                         </StackPanel>
                     </ListViewItem>
                     <ListViewItem Height="60">
-                        <StackPanel Orientation="Horizontal">
-                            <Button x:Name="ImprovementMenuBotton" Content="ImprovementBotton" Click="ImprovementMenuBotton_Click" Visibility="Collapsed"/>
+                        <StackPanel Orientation="Horizontal"  MouseLeftButtonDown="ImprovementMenuBotton_Click">
                             <materialDesign:PackIcon Kind="Check" Margin="10" Width="25" Height="25" VerticalAlignment="Center"></materialDesign:PackIcon>
                             <TextBlock Text="Improvement" FontSize="25" FontWeight="Bold" VerticalAlignment="Center" Margin="20 10"/>
                         </StackPanel>
                     </ListViewItem>
                     <ListViewItem Height="60">
-                        <StackPanel Orientation="Horizontal">
-                            <Button x:Name="HistoryMenuBotton" Content="HistoryBotton" Click="HistoryMenuBotton_Click" Visibility="Collapsed"/>
+                        <StackPanel Orientation="Horizontal" MouseLeftButtonDown="HistoryMenuBotton_Click">
                             <materialDesign:PackIcon Kind="Calendar" Margin="10" Width="25" Height="25" VerticalAlignment="Center"></materialDesign:PackIcon>
                             <TextBlock Text="History" FontSize="25" FontWeight="Bold" VerticalAlignment="Center" Margin="20 10"/>
                         </StackPanel>
@@ -71,7 +66,7 @@
             </StackPanel>
             <Grid x:Name="Logo" Width="250" Height="100" VerticalAlignment="Bottom" HorizontalAlignment="Left">
                 <Grid.Background>
-                    <ImageBrush ImageSource="E:\forensics\Collector2\Collector\image\logo.jpg"/>
+                    <ImageBrush ImageSource="C:\Users\Ethan\Desktop\forensic\Collector\image\logo.jpg"/>
                 </Grid.Background>
 
             </Grid>
