@@ -16,7 +16,7 @@
 
     <Grid Background="LightGray" >
         <Grid Height="90" VerticalAlignment="Top" Margin="-1,0,1,0" Background="#FF79ACCF">
-            <TextBlock Text="Information Security Rating System" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="36" Foreground="#DDFFFFFF" FontWeight="Bold"></TextBlock>
+            <TextBlock Text="기술보호 수준측정 시스템" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="36" Foreground="#DDFFFFFF" FontWeight="Bold"></TextBlock>
             <StackPanel VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Right">
                 <materialDesign:PopupBox HorizontalAlignment="Right" Margin="10" PlacementMode="BottomAndAlignRightEdges" StaysOpen="False" Foreground="#DDFFFFFF">
                     <StackPanel Width="150">
@@ -24,7 +24,7 @@
                         <Button Content="Settings"/>
                         <Button Content="Help"/>
                         <Separator/>
-                        <Button x:Name="ButtonPopupLogout" Content="Logout" Click="ButtonPopupLogout_Click"/>
+                        <Button x:Name="ButtonPopupLogout" Content="종료" Click="ButtonPopupLogout_Click"/>
                     </StackPanel>
                 </materialDesign:PopupBox>
             </StackPanel>
@@ -35,57 +35,141 @@
                     <ListViewItem Height="60" x:Name="HomeMenu">
                         <StackPanel Orientation="Horizontal" MouseLeftButtonDown="HomeMenuBotton_Click">
                             <materialDesign:PackIcon Kind="ViewDashboard" Width="25" Height="25" Margin="10" VerticalAlignment="Center"></materialDesign:PackIcon>
-                            <TextBlock Text="Home" FontSize="25" FontWeight="Bold" VerticalAlignment="Center" Margin="20 10"  />
+                            <TextBlock Text="홈" FontSize="25" FontWeight="Bold" VerticalAlignment="Center" Margin="20 10"  />
                         </StackPanel>
                     </ListViewItem>
                     <ListViewItem Height="60">
                         <StackPanel Orientation="Horizontal" MouseLeftButtonDown="RatingMenuBotton_Click">
                             <materialDesign:PackIcon Kind="RateReview" Margin="10" Width="25" Height="25" VerticalAlignment="Center"></materialDesign:PackIcon>
-                            <TextBlock Text="Rating" FontSize="25" FontWeight="Bold" VerticalAlignment="Center" Margin="20 10" />
-                        </StackPanel>
-                    </ListViewItem>
-                    <ListViewItem Height="60">
-                        <StackPanel Orientation="Horizontal" MouseLeftButtonDown="FixMenuBotton_Click">
-                            <materialDesign:PackIcon Kind="BellAlert" Margin="10" Width="25" Height="25" VerticalAlignment="Center"></materialDesign:PackIcon>
-                            <TextBlock Text="Fix" FontSize="25" FontWeight="Bold" VerticalAlignment="Center" Margin="20 10"/>
+                            <TextBlock Text="측정결과" FontSize="25" FontWeight="Bold" VerticalAlignment="Center" Margin="20 10" />
                         </StackPanel>
                     </ListViewItem>
                     <ListViewItem Height="60">
                         <StackPanel Orientation="Horizontal"  MouseLeftButtonDown="ImprovementMenuBotton_Click">
                             <materialDesign:PackIcon Kind="Check" Margin="10" Width="25" Height="25" VerticalAlignment="Center"></materialDesign:PackIcon>
-                            <TextBlock Text="Improvement" FontSize="25" FontWeight="Bold" VerticalAlignment="Center" Margin="20 10"/>
+                            <TextBlock Text="이전측정 결과" FontSize="25" FontWeight="Bold" VerticalAlignment="Center" Margin="20 10"/>
                         </StackPanel>
                     </ListViewItem>
                     <ListViewItem Height="60">
-                        <StackPanel Orientation="Horizontal" MouseLeftButtonDown="HistoryMenuBotton_Click">
-                            <materialDesign:PackIcon Kind="Calendar" Margin="10" Width="25" Height="25" VerticalAlignment="Center"></materialDesign:PackIcon>
-                            <TextBlock Text="History" FontSize="25" FontWeight="Bold" VerticalAlignment="Center" Margin="20 10"/>
+                        <StackPanel Orientation="Horizontal" MouseLeftButtonDown="FixMenuBotton_Click">
+                            <materialDesign:PackIcon Kind="BellAlert" Margin="10" Width="25" Height="25" VerticalAlignment="Center"></materialDesign:PackIcon>
+                            <TextBlock Text="보완사항" FontSize="25" FontWeight="Bold" VerticalAlignment="Center" Margin="20 10"/>
                         </StackPanel>
                     </ListViewItem>
+                    <!--<ListViewItem Height="60">
+                        <StackPanel Orientation="Horizontal" MouseLeftButtonDown="HistoryMenuBotton_Click">
+                            <materialDesign:PackIcon Kind="Calendar" Margin="10" Width="25" Height="25" VerticalAlignment="Center"></materialDesign:PackIcon>
+                            <TextBlock Text="모니터링" FontSize="25" FontWeight="Bold" VerticalAlignment="Center" Margin="20 10"/>
+                        </StackPanel>
+                    </ListViewItem>-->
                 </ListView>
             </StackPanel>
-            <Grid x:Name="Logo" Width="250" Height="100" VerticalAlignment="Bottom" HorizontalAlignment="Left">
+            <Grid x:Name="Logo" Width="250" Height="100" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,530,0,0">
                 <Grid.Background>
-                    <ImageBrush ImageSource="C:\Users\Ethan\Desktop\forensic\Collector\image\logo.jpg"/>
+                    <ImageBrush ImageSource="E:\forensics\Collector2\Collector\image\logo2.png"/>
                 </Grid.Background>
 
             </Grid>
         </Grid>
-        <Grid x:Name="HomeContents" Width="950" Height="630" HorizontalAlignment="Right" VerticalAlignment="Bottom" >
+        <Grid x:Name="HomeContents" Width="950" Height="630" HorizontalAlignment="Right" VerticalAlignment="Bottom" Visibility="Collapsed" >
+            <Grid x:Name="showScore" Width="950" Height="270" HorizontalAlignment="Right" VerticalAlignment="Top">
+                <TextBlock Text="testUser01 님의 PC 기술보호 수준은 90점입니다. "  HorizontalAlignment="Left" FontSize="30" FontWeight="Bold" VerticalAlignment="Top" Margin="20 30"/>
+                <TextBlock Text="지난 나의 점수 : 70점 "  HorizontalAlignment="Left" FontSize="30" FontWeight="Bold" VerticalAlignment="Top" Margin="100 120"/>
+                <TextBlock Text="재검사까지 10일 남음"  HorizontalAlignment="Left" FontSize="30" FontWeight="Bold" VerticalAlignment="Bottom" Margin="100 50"/>
+            </Grid>
+            <Grid x:Name="showContent" Width="950" Height="360" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+                <Grid x:Name="showGoodContent" Width="475" Height="360" HorizontalAlignment="Left" VerticalAlignment="Bottom">
+                    <TextBlock Text="Good"  HorizontalAlignment="Left" FontSize="30" FontWeight="Bold" VerticalAlignment="Top" Margin="20 10"/>
+                    <DataGrid x:Name="GoodContent" Margin="20 50"
+                          AutoGenerateColumns="False"
+                          SelectionMode="Single"
+                          AlternationCount="2"
+                          AlternatingRowBackground="LightGray" 
+                          >
+                        <DataGrid.ColumnHeaderStyle>
+                            <Style TargetType="DataGridColumnHeader">
+                                <Setter Property="Background" Value="Gray"/>
+                                <Setter Property="Foreground" Value="White"/>
+                                <Setter Property="FontSize" Value="24"/>
+                                <Setter Property="FontWeight" Value="Bold"/>
+                                <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                            </Style>
+                        </DataGrid.ColumnHeaderStyle>
+                        <DataGrid.CellStyle>
+                            <Style TargetType="DataGridCell">
+                                <Setter Property="Background" Value="White"/>
+                                <Setter Property="FontSize" Value="20"/>
+                                <Setter Property="FontWeight" Value="Bold"/>
+                                <Setter Property="BorderBrush" Value="White"/>
+                            </Style>
+                        </DataGrid.CellStyle>
+                        <DataGrid.Columns>
+                            <DataGridTextColumn
+                            Binding="{Binding titleGood}"
+                            Header="구 분"
+                            IsReadOnly="True"
+                            Width="100"/>
+                            <DataGridTextColumn
+                            Binding="{Binding homeGood}"
+                            Header="측정항목"
+                            IsReadOnly="True"
+                            Width="335"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+                <Grid x:Name="showBadContent" Width="475" Height="360" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+                    <TextBlock Text="Bad"  HorizontalAlignment="Left" FontSize="30" FontWeight="Bold" VerticalAlignment="Top" Margin="20 10"/>
+                    <DataGrid x:Name="BadContent" Margin="20 50"
+                          AutoGenerateColumns="False"
+                          SelectionMode="Single"
+                          AlternationCount="2"
+                          AlternatingRowBackground="LightGray" >
+                        <DataGrid.ColumnHeaderStyle>
+                            <Style TargetType="DataGridColumnHeader">
+                                <Setter Property="Background" Value="Gray"/>
+                                <Setter Property="Foreground" Value="White"/>
+                                <Setter Property="FontSize" Value="24"/>
+                                <Setter Property="FontWeight" Value="Bold"/>
+                                <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                            </Style>
+                        </DataGrid.ColumnHeaderStyle>
+                        <DataGrid.CellStyle>
+                            <Style TargetType="DataGridCell">
+                                <Setter Property="Background" Value="White"/>
+                                <Setter Property="FontSize" Value="20"/>
+                                <Setter Property="FontWeight" Value="Bold"/>
+                                <Setter Property="BorderBrush" Value="White"/>
+                            </Style>
+                        </DataGrid.CellStyle>
+                        <DataGrid.Columns>
+                            <DataGridTextColumn
+                            Binding="{Binding titleBad}"
+                            Header="구 분"
+                            IsReadOnly="True"
+                            Width="100"/>
+                            <DataGridTextColumn
+                            Binding="{Binding homeBad}"
+                            Header="측정항목"
+                            IsReadOnly="True"
+                            Width="335"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </Grid>
         </Grid>
-        <Grid x:Name="RateContents" Width="950" Height="630" HorizontalAlignment="Right" VerticalAlignment="Bottom" Visibility="Collapsed">
+        <Grid x:Name="RateContents" Width="950" Height="630" HorizontalAlignment="Right" VerticalAlignment="Bottom" Visibility="Collapsed" >
             <Grid x:Name="RateTopContents" Width="950" Height="100" HorizontalAlignment="Right" VerticalAlignment="Top">
                 <Grid x:Name="LeftTopContents" Width="500" Height="100" HorizontalAlignment="Left" VerticalAlignment="Top">
-                    <TextBlock Text="User : " Width="200" HorizontalAlignment="Left" FontSize="30" FontWeight="Bold" VerticalAlignment="Top" Margin="20 10"/>
-                    <TextBlock Text="TestUsr01" Width="250" HorizontalAlignment="Right" FontSize="30" FontWeight="Bold" VerticalAlignment="Top" Margin="20 10"/>
-                    <TextBlock Text="Rate Date : " Width="200" HorizontalAlignment="Left" FontSize="30" FontWeight="Bold" VerticalAlignment="Bottom" Margin="20 10"/>
-                    <TextBlock Text="2019.10.29" Width="250" HorizontalAlignment="Right" FontSize="30" FontWeight="Bold" VerticalAlignment="Bottom" Margin="20 10"/>
+                    <TextBlock Text="사용자 : " Width="200" HorizontalAlignment="Left" FontSize="30" FontWeight="Bold" VerticalAlignment="Top" Margin="20 10"/>
+                    <TextBlock Text="TestUser01" Width="250" HorizontalAlignment="Right" FontSize="30" FontWeight="Bold" VerticalAlignment="Top" Margin="20 10"/>
+                    <TextBlock Text="측정일 : " Width="200" HorizontalAlignment="Left" FontSize="30" FontWeight="Bold" VerticalAlignment="Bottom" Margin="20 10"/>
+                    <TextBlock Text="2019.11.02" Width="250" HorizontalAlignment="Right" FontSize="30" FontWeight="Bold" VerticalAlignment="Bottom" Margin="20 10"/>
                 </Grid>
                 <Grid x:Name="RightTopContents" Width="450" Height="100" HorizontalAlignment="Right" VerticalAlignment="Top">
-                    <TextBlock Text="IP Address : " Width="200" HorizontalAlignment="Left" FontSize="30" FontWeight="Bold" VerticalAlignment="Top" Margin="20 10"/>
+                    <TextBlock Text="IP 주소 : " Width="200" HorizontalAlignment="Left" FontSize="30" FontWeight="Bold" VerticalAlignment="Top" Margin="20 10"/>
                     <TextBlock Text="192.168.0.1" Width="220" HorizontalAlignment="Right" FontSize="30" FontWeight="Bold" VerticalAlignment="Top" Margin="20 10"/>
-                    <TextBlock Text="Result : " Width="200" HorizontalAlignment="Left" FontSize="30" FontWeight="Bold" VerticalAlignment="Bottom" Margin="20 10"/>
-                    <TextBlock Text="Bad" Width="220" HorizontalAlignment="Right" FontSize="30" FontWeight="Bold" VerticalAlignment="Bottom" Margin="20 10"/>
+                    <TextBlock Text="결과 : " Width="200" HorizontalAlignment="Left" FontSize="30" FontWeight="Bold" VerticalAlignment="Bottom" Margin="20 10"/>
+                    <TextBlock Text="90점" Width="220" HorizontalAlignment="Right" FontSize="30" FontWeight="Bold" VerticalAlignment="Bottom" Margin="20 10"/>
                 </Grid>
             </Grid>
             <Grid x:Name="RateMainContents" Width="950" Height="530" HorizontalAlignment="Right" VerticalAlignment="Bottom">
@@ -100,22 +184,37 @@
                             <Setter Property="Foreground" Value="White"/>
                             <Setter Property="FontSize" Value="24"/>
                             <Setter Property="FontWeight" Value="Bold"/>
+                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
                         </Style>
                     </DataGrid.ColumnHeaderStyle>
+                    <DataGrid.CellStyle>
+                        <Style TargetType="DataGridCell">
+                            <Setter Property="Background" Value="White"/>
+                            <Setter Property="FontSize" Value="20"/>
+                            <Setter Property="FontWeight" Value="Bold"/>
+                            <Setter Property="BorderBrush" Value="White"/>
+                        </Style>
+                    </DataGrid.CellStyle>
                     <DataGrid.Columns>
                         <DataGridTextColumn
+                            Binding="{Binding Title}"
+                            Header="구분"
+                            Width="100"
+                            IsReadOnly="True">
+                        </DataGridTextColumn>
+                        <DataGridTextColumn
                             Binding="{Binding Elements}"
-                            Header="Elements"
-                            Width="300"
-                            IsReadOnly="True"/>
+                            Header="측정항목"
+                            Width="200"
+                            IsReadOnly="True">
+                        </DataGridTextColumn>
                         <DataGridTextColumn
                             Binding="{Binding Status}"
-                            Header="Status"
-                            Width="100"/>
+                            Header="결과"
+                            Width="70"/>
                         <DataGridTextColumn
-                            Binding="{Binding Score}"
-                            Header="Score"
-                            Width="100"/>
+                            Binding="{Binding Path}"
+                            Header="경로"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </Grid>
@@ -126,7 +225,7 @@
                     <RowDefinition Height="43*"/>
                     <RowDefinition Height="32*"/>
                 </Grid.RowDefinitions>
-                <TextBlock Margin="10,10,0,136.58" Text="Good" Foreground="DimGray" FontSize="20" FontWeight="Bold"  HorizontalAlignment="Left"></TextBlock>
+                <TextBlock Margin="10,10,0,136.58" Text="준수(마지막 측정 기준)" Foreground="DimGray" FontSize="20" FontWeight="Bold"  HorizontalAlignment="Left"></TextBlock>
                 <DataGrid x:Name="goodData" Margin="10 35 10 0"
                           AutoGenerateColumns="False"
                           SelectionMode="Single"
@@ -139,23 +238,37 @@
                             <Setter Property="Foreground" Value="White"/>
                             <Setter Property="FontSize" Value="24"/>
                             <Setter Property="FontWeight" Value="Bold"/>
+                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
                         </Style>
                     </DataGrid.ColumnHeaderStyle>
+                    <DataGrid.CellStyle>
+                        <Style TargetType="DataGridCell">
+                            <Setter Property="Background" Value="White"/>
+                            <Setter Property="FontSize" Value="20"/>
+                            <Setter Property="FontWeight" Value="Bold"/>
+                            <Setter Property="BorderBrush" Value="White"/>
+                        </Style>
+                    </DataGrid.CellStyle>
                     <DataGrid.Columns>
                         <DataGridTextColumn
-                            Binding="{Binding Elements}"
-                            Header="Elements"
-                            Width="500"
+                            Binding="{Binding Title}"
+                            Header="구분"
+                            Width="100"
                             IsReadOnly="True"/>
                         <DataGridTextColumn
-                            Binding="{Binding Status}"
-                            Header="Status"
-                            Width="100"/>
+                            Binding="{Binding Elements}"
+                            Header="측정항목"
+                            Width="200"
+                            IsReadOnly="True"/>
+                        <DataGridTextColumn
+                            Binding="{Binding Path}"
+                            Header="경로"
+                            Width="650"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </Grid>
             <Grid x:Name="BadContents" Width="950" Height="330" HorizontalAlignment="Right" VerticalAlignment="Bottom">
-                <TextBlock Margin="10,10,0,292" Text="Bad" Foreground="DimGray" FontSize="20" FontWeight="Bold"  HorizontalAlignment="Left"></TextBlock>
+                <TextBlock Margin="10,10,0,292" Text="미흡(마지막 측정 기준)" Foreground="DimGray" FontSize="20" FontWeight="Bold"  HorizontalAlignment="Left"></TextBlock>
                 <DataGrid x:Name="badData" Margin="10 35 10 10"
                           AutoGenerateColumns="False"
                           SelectionMode="Single"
@@ -167,63 +280,49 @@
                             <Setter Property="Foreground" Value="White"/>
                             <Setter Property="FontSize" Value="24"/>
                             <Setter Property="FontWeight" Value="Bold"/>
+                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
                         </Style>
                     </DataGrid.ColumnHeaderStyle>
+                    <DataGrid.CellStyle>
+                        <Style TargetType="DataGridCell">
+                            <Setter Property="Background" Value="White"/>
+                            <Setter Property="FontSize" Value="20"/>
+                            <Setter Property="FontWeight" Value="Bold"/>
+                            <Setter Property="BorderBrush" Value="White"/>
+                        </Style>
+                    </DataGrid.CellStyle>
                     <DataGrid.Columns>
                         <DataGridTextColumn
-                            Binding="{Binding Elements}"
-                            Header="Elements"
-                            Width="400"
+                            Binding="{Binding Title}"
+                            Header="구분"
+                            Width="100"
                             IsReadOnly="True"/>
                         <DataGridTextColumn
-                            Binding="{Binding Status}"
-                            Header="Status"
-                            Width="100"/>
+                            Binding="{Binding Elements}"
+                            Header="측정항목"
+                            Width="200"
+                            IsReadOnly="True"/>
+                        <DataGridTextColumn
+                            Binding="{Binding Path}"
+                            Header="경로"
+                            Width="300"/>
                         <DataGridTextColumn
                             Binding="{Binding Advice}"
-                            Header="Advice"
-                            Width="100"/>
+                            Header="권고사항"
+                            Width="350"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </Grid>
         </Grid>
-        <Grid x:Name="ImprovementContents" Width="950" Height="630" HorizontalAlignment="Right" VerticalAlignment="Bottom" Visibility="Collapsed" >
-            <Grid x:Name="TopContents" Width="950" Height="300" HorizontalAlignment="Right" VerticalAlignment="Top">
+        <Grid x:Name="ImprovementContents" Width="950" Height="630" HorizontalAlignment="Right" VerticalAlignment="Bottom" Visibility="Collapsed">
+            <Grid x:Name="LeftContents" Width="475" Height="630" HorizontalAlignment="Left" VerticalAlignment="Top">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="43*"/>
                     <RowDefinition Height="32*"/>
                 </Grid.RowDefinitions>
-                <TextBlock Margin="10,10,0,136.58" Text="Improvement" Foreground="DimGray" FontSize="20" FontWeight="Bold"  HorizontalAlignment="Left"></TextBlock>
-                <DataGrid x:Name="TopData" Margin="10 35 10 0"
-                          AutoGenerateColumns="False"
-                          SelectionMode="Single"
-                          AlternationCount="2"
-                          AlternatingRowBackground="LightGray" Background="WhiteSmoke" Grid.RowSpan="2"
-                          >
-                    <DataGrid.ColumnHeaderStyle>
-                        <Style TargetType="DataGridColumnHeader">
-                            <Setter Property="Background" Value="Gray"/>
-                            <Setter Property="Foreground" Value="White"/>
-                            <Setter Property="FontSize" Value="24"/>
-                            <Setter Property="FontWeight" Value="Bold"/>
-                        </Style>
-                    </DataGrid.ColumnHeaderStyle>
-                    <DataGrid.Columns>
-                        <DataGridTextColumn
-                            Binding="{Binding Elements}"
-                            Header="Elements"
-                            Width="500"
-                            IsReadOnly="True"/>
-                        <DataGridTextColumn
-                            Binding="{Binding Status}"
-                            Header="Status"
-                            Width="100"/>
-                    </DataGrid.Columns>
-                </DataGrid>
-            </Grid>
-            <Grid x:Name="BottomContents" Width="950" Height="330" HorizontalAlignment="Right" VerticalAlignment="Bottom">
-                <TextBlock Margin="10,10,0,292" Text="Not Yet" Foreground="DimGray" FontSize="20" FontWeight="Bold"  HorizontalAlignment="Left"></TextBlock>
-                <DataGrid x:Name="BottomData" Margin="10 35 10 10"
+                <TextBlock Margin="160,6,0,335" Text="지난 평가 결과" Foreground="DimGray" FontSize="20" FontWeight="Bold"  HorizontalAlignment="Left"></TextBlock>
+                <TextBlock Margin="0,6,10,335" Text="70점" Foreground="DimGray" FontSize="20" FontWeight="Bold"  HorizontalAlignment="Right"></TextBlock>
+                <DataGrid x:Name="LeftTopData" Margin="10,55,10,27"
                           AutoGenerateColumns="False"
                           SelectionMode="Single"
                           AlternationCount="2"
@@ -235,24 +334,174 @@
                             <Setter Property="Foreground" Value="White"/>
                             <Setter Property="FontSize" Value="24"/>
                             <Setter Property="FontWeight" Value="Bold"/>
+                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
                         </Style>
                     </DataGrid.ColumnHeaderStyle>
+                    <DataGrid.CellStyle>
+                        <Style TargetType="DataGridCell">
+                            <Setter Property="Background" Value="White"/>
+                            <Setter Property="FontSize" Value="20"/>
+                            <Setter Property="FontWeight" Value="Bold"/>
+                            <Setter Property="BorderBrush" Value="White"/>
+                        </Style>
+                    </DataGrid.CellStyle>
                     <DataGrid.Columns>
                         <DataGridTextColumn
+                            Binding="{Binding Title}"
+                            Header="구분"
+                            Width="100"
+                            IsReadOnly="True"/>
+                        <DataGridTextColumn
                             Binding="{Binding Elements}"
-                            Header="Elements"
-                            Width="400"
+                            Header="측정항목"
+                            Width="150"
                             IsReadOnly="True"/>
                         <DataGridTextColumn
                             Binding="{Binding Status}"
-                            Header="Status"
-                            Width="100"/>
+                            Header="결과"
+                            Width="70"/>
                         <DataGridTextColumn
-                            Binding="{Binding Advice}"
-                            Header="Advice"
-                            Width="100"/>
+                            Binding="{Binding Path}"
+                            Header="경로"/>
                     </DataGrid.Columns>
                 </DataGrid>
+                <TextBlock Margin="10,340,0,263" Text="미개선사항" Foreground="DimGray" FontSize="20" FontWeight="Bold"  HorizontalAlignment="Left" Grid.RowSpan="2"/>
+                <DataGrid x:Name="LeftBottomData" Margin="10,0,10,8"
+                          VerticalAlignment="Bottom"
+                          AutoGenerateColumns="False"
+                          SelectionMode="Single"
+                          AlternationCount="2"
+                          AlternatingRowBackground="LightGray" Background="WhiteSmoke" Height="255" Grid.Row="1"
+                          >
+                    <DataGrid.ColumnHeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="Background" Value="Gray"/>
+                            <Setter Property="Foreground" Value="White"/>
+                            <Setter Property="FontSize" Value="24"/>
+                            <Setter Property="FontWeight" Value="Bold"/>
+                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                        </Style>
+                    </DataGrid.ColumnHeaderStyle>
+                    <DataGrid.CellStyle>
+                        <Style TargetType="DataGridCell">
+                            <Setter Property="Background" Value="White"/>
+                            <Setter Property="FontSize" Value="20"/>
+                            <Setter Property="FontWeight" Value="Bold"/>
+                            <Setter Property="BorderBrush" Value="White"/>
+                        </Style>
+                    </DataGrid.CellStyle>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn
+                            Binding="{Binding Title}"
+                            Header="구분"
+                            Width="100"
+                            IsReadOnly="True"/>
+                        <DataGridTextColumn
+                            Binding="{Binding Elements}"
+                            Header="측정항목"
+                            Width="150"
+                            IsReadOnly="True"/>
+                        <DataGridTextColumn
+                            Binding="{Binding Status}"
+                            Header="결과"
+                            Width="70"/>
+                        <DataGridTextColumn
+                            Binding="{Binding Path}"
+                            Header="경로"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <TextBlock Margin="10,29,0,302" Foreground="DimGray" FontSize="20" FontWeight="Bold"  HorizontalAlignment="Left"><Run Text="개선사항"/><LineBreak/><Run/></TextBlock>
+            </Grid>
+            <Grid x:Name="BottomContents" Width="475" Height="630" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+                <TextBlock Margin="0,6,10,599" Text="90점" Foreground="DimGray" FontSize="20" FontWeight="Bold"  HorizontalAlignment="Right"></TextBlock>
+                <DataGrid x:Name="RightTopData" Margin="10,55,10,296"
+                          AutoGenerateColumns="False"
+                          SelectionMode="Single"
+                          AlternationCount="2"
+                          AlternatingRowBackground="LightGray" Background="WhiteSmoke"
+                          >
+                    <DataGrid.ColumnHeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="Background" Value="Gray"/>
+                            <Setter Property="Foreground" Value="White"/>
+                            <Setter Property="FontSize" Value="24"/>
+                            <Setter Property="FontWeight" Value="Bold"/>
+                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                        </Style>
+                    </DataGrid.ColumnHeaderStyle>
+                    <DataGrid.CellStyle>
+                        <Style TargetType="DataGridCell">
+                            <Setter Property="Background" Value="White"/>
+                            <Setter Property="FontSize" Value="20"/>
+                            <Setter Property="FontWeight" Value="Bold"/>
+                            <Setter Property="BorderBrush" Value="White"/>
+                        </Style>
+                    </DataGrid.CellStyle>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn
+                            Binding="{Binding Title}"
+                            Header="구분"
+                            Width="110"
+                            IsReadOnly="True"/>
+                        <DataGridTextColumn
+                            Binding="{Binding Elements}"
+                            Header="측정항목"
+                            Width="150"
+                            IsReadOnly="True"/>
+                        <DataGridTextColumn
+                            Binding="{Binding Status}"
+                            Header="결과"
+                            Width="70"/>
+                        <DataGridTextColumn
+                            Binding="{Binding Path}"
+                            Header="경로"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <DataGrid x:Name="RightBottomData" Margin="10,0,10,8"
+                          VerticalAlignment="Bottom"
+                          AutoGenerateColumns="False"
+                          SelectionMode="Single"
+                          AlternationCount="2"
+                          AlternatingRowBackground="LightGray" Background="WhiteSmoke" Height="256"
+                          >
+                    <DataGrid.ColumnHeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="Background" Value="Gray"/>
+                            <Setter Property="Foreground" Value="White"/>
+                            <Setter Property="FontSize" Value="24"/>
+                            <Setter Property="FontWeight" Value="Bold"/>
+                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                        </Style>
+                    </DataGrid.ColumnHeaderStyle>
+                    <DataGrid.CellStyle>
+                        <Style TargetType="DataGridCell">
+                            <Setter Property="Background" Value="White"/>
+                            <Setter Property="FontSize" Value="20"/>
+                            <Setter Property="FontWeight" Value="Bold"/>
+                            <Setter Property="BorderBrush" Value="White"/>
+                        </Style>
+                    </DataGrid.CellStyle>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn
+                            Binding="{Binding Title}"
+                            Header="구분"
+                            Width="110"
+                            IsReadOnly="True"/>
+                        <DataGridTextColumn
+                            Binding="{Binding Elements}"
+                            Header="측정항목"
+                            Width="150"
+                            IsReadOnly="True"/>
+                        <DataGridTextColumn
+                            Binding="{Binding Status}"
+                            Header="결과"
+                            Width="70"/>
+                        <DataGridTextColumn
+                            Binding="{Binding Path}"
+                            Header="경로"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <TextBlock Margin="166,6,0,599" Foreground="DimGray" FontSize="20" FontWeight="Bold"  HorizontalAlignment="Left"><Run Text="이번 평가 결과"/><LineBreak/><Run/></TextBlock>
             </Grid>
         </Grid>
     </Grid>

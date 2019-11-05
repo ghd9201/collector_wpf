@@ -63,3 +63,4 @@ C:\Users\Ethan\Desktop\forensic\Collector\obj\Debug\Collector.csproj.CopyComplet
 C:\Users\Ethan\Desktop\forensic\Collector\obj\Debug\Collector.exe
 C:\Users\Ethan\Desktop\forensic\Collector\obj\Debug\Collector.pdb
 C:\Users\Ethan\Desktop\forensic\Collector\obj\Debug\Collector.csprojAssemblyReference.cache
+E:\forensics\Collector2\Collector\obj\Debug\Collector.csprojAssemblyReference.cache
