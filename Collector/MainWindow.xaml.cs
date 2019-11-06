@@ -78,15 +78,18 @@ namespace Collector
             goodDt.Rows.Add(new string[] { "운영체제","사용자 비밀번호 설정확인" });
             goodDt.Rows.Add(new string[] { "", "운영체제 최신버전 확인" });
             goodDt.Rows.Add(new string[] { "", "보안시스템 설치 확인" });
-            goodDt.Rows.Add(new string[] { "", "보안시스템 해지 흔적 확인" });
-
             goodDt.Rows.Add(new string[] { "저장매체", "보안시스템 설치 확인" });
-            goodDt.Rows.Add(new string[] { "", "보안시스템 해지 흔적 확인" });
 
             badDt.Columns.Add("titleBad");
             badDt.Columns.Add("homeBad");
+
+            badDt.Rows.Add(new string[] { "운영체제", "사용자 인증방식 복잡 정도 확인" });
+            badDt.Rows.Add(new string[] { "", "보안시스템 해지 흔적 확인" });
+            
             badDt.Rows.Add(new string[] { "저장매체", "(이동식)저장매체 연결 흔적 확인" });
             badDt.Rows.Add(new string[] { "", "고정형 저장장치 연결 흔적 확인" });
+            badDt.Rows.Add(new string[] { "", "응용 프로그램 최신버전 확인" });
+            badDt.Rows.Add(new string[] { "", "보안시스템 해지 흔적 확인" });
 
             GoodContent.ItemsSource = goodDt.DefaultView;
             BadContent.ItemsSource = badDt.DefaultView;
@@ -101,6 +104,7 @@ namespace Collector
             resultDt.Columns.Add("Path");
 
             resultDt.Rows.Add(new string[] { "운영체제", "사용자 비밀번호 설정확인", "O", "Services\\Netlogon\\Parameters" });
+            resultDt.Rows.Add(new string[] { "", "사용자 인증방식 복잡 정도 확인", "X", "Windows\\CurrentVersion\\Uninstall" });
             resultDt.Rows.Add(new string[] { "","운영체제 최신버전 확인", "O", "Windows\\CurrentVersion\\WindowsUpdate\\Trace" });
 
             resultDt.Rows.Add(new string[] { "","보안시스템 설치 확인", "O", "SOFTWARE\\Ahnlab\\V3Lite4" });
@@ -108,7 +112,7 @@ namespace Collector
             resultDt.Rows.Add(new string[] { "", "", "", "SOFTWARE\\MarkAny\\ImageSAFERv5" });
             resultDt.Rows.Add(new string[] { "", "", "", "SOFTWARE\\McAfee" });
 
-            resultDt.Rows.Add(new string[] { "", "보안시스템 해지 흔적 확인", "O", "Windows\\CurrentVersion\\Uninstall" });
+            resultDt.Rows.Add(new string[] { "", "보안시스템 해지 흔적 확인", "X", "Windows\\CurrentVersion\\Uninstall" });
 
             for (int i = 0; i < usbPathList.Count; i++)
             {
@@ -134,10 +138,10 @@ namespace Collector
                 }
             }
 
+            resultDt.Rows.Add(new string[] { "", "응용 프로그램 최신버전 확인", "X", "SYSTEM\\ControlSet001\\Enum\\ROOT" });
             resultDt.Rows.Add(new string[] { "", "보안시스템 설치 확인", "O", "SOFTWARE\\Ahnlab\\V3Lite4" });
             resultDt.Rows.Add(new string[] { "", "", "", "SOFTWARE\\McAfee" });
-
-            resultDt.Rows.Add(new string[] { "", "보안시스템 해지 흔적 확인", "O", "Windows\\CurrentVersion\\Uninstall" });
+            resultDt.Rows.Add(new string[] { "", "보안시스템 해지 흔적 확인", "X", "Windows\\CurrentVersion\\Uninstall" });
             //보안 소프트웨어 설치
 
 
@@ -157,27 +161,22 @@ namespace Collector
             fixGoodDt.Columns.Add("Path");
 
             fixGoodDt.Rows.Add(new string[] { "운영체제", "사용자 비밀번호 설정확인",  "Services\\Netlogon\\Parameters" });
-            fixGoodDt.Rows.Add(new string[] { "", "운영체제 최신버전 확인",  "Windows\\CurrentVersion\\WindowsUpdate\\Trace" });
-
+            fixGoodDt.Rows.Add(new string[] { "", "운영체제 최신버전 확인", "Windows\\CurrentVersion\\WindowsUpdate\\Trace" });
             fixGoodDt.Rows.Add(new string[] { "", "보안시스템 설치 확인",  "SOFTWARE\\Ahnlab\\V3Lite4" });
             fixGoodDt.Rows.Add(new string[] { "", "",  "SOFTWARE\\Ahnlab\\Safe Transaction" });
             fixGoodDt.Rows.Add(new string[] { "", "",  "SOFTWARE\\MarkAny\\ImageSAFERv5" });
             fixGoodDt.Rows.Add(new string[] { "", "",  "SOFTWARE\\McAfee" });
-
-            fixGoodDt.Rows.Add(new string[] { "", "보안시스템 해지 흔적 확인",  "Windows\\CurrentVersion\\Uninstall" });
-
-
             fixGoodDt.Rows.Add(new string[] { "저장매체", "보안시스템 설치 확인", "SOFTWARE\\Ahnlab\\V3Lite4" });
-            fixGoodDt.Rows.Add(new string[] { "", "",  "SOFTWARE\\McAfee" });
-
-            fixGoodDt.Rows.Add(new string[] { "", "보안시스템 해지 흔적 확인",  "Windows\\CurrentVersion\\Uninstall" });
+            fixGoodDt.Rows.Add(new string[] { "", "", "SOFTWARE\\McAfee" });
 
             fixBadDt.Columns.Add("Title");
             fixBadDt.Columns.Add("Elements");
             fixBadDt.Columns.Add("Path");
             fixBadDt.Columns.Add("Advice");
 
-
+            fixBadDt.Rows.Add(new string[] { "운영체제", "사용자 인증방식 복잡 정도 확인", "Windows\\CurrentVersion\\WindowsUpdate\\Trace", "사용자 인증 보안시스템 설치 권장" });
+            fixBadDt.Rows.Add(new string[] { "", "보안시스템 해지 흔적 확인", "Windows\\CurrentVersion\\Uninstall", "보안시스템 해지 흔적 확인(소명서 제출 요망)" });
+            
             for (int i = 0; i < usbPathList.Count; i++)
             {
                 if (i > 1)
@@ -211,6 +210,11 @@ namespace Collector
 
             }
 
+            fixBadDt.Rows.Add(new string[] { "", "응용 프로그램 최신버전 확인", "SYSTEM\\ControlSet001\\Enum\\ROOT", "응용 프로그램 업데이트 권장" });
+
+            fixBadDt.Rows.Add(new string[] { "", "보안시스템 해지 흔적 확인", "Windows\\CurrentVersion\\Uninstall", "보안시스템 해지 흔적 확인(소명서 제출 요망)" });
+
+
             goodData.ItemsSource = fixGoodDt.DefaultView;
             badData.ItemsSource = fixBadDt.DefaultView;
         }
@@ -240,26 +244,24 @@ namespace Collector
             rightBottomDt.Columns.Add("Status");
             rightBottomDt.Columns.Add("Path");
 
-            leftTopDt.Rows.Add(new string[] { "운영체제", "사용자 비밀번호 설정확인", "X", "Services\\Netlogon" });
-            leftTopDt.Rows.Add(new string[] { "", "운영체제 최신버전 확인", "X", "Windows\\CurrentVersion\\WindowsUpdate" });
-            leftTopDt.Rows.Add(new string[] { "", "보안시스템 설치 확인", "X", "SOFTWARE" });
-            leftTopDt.Rows.Add(new string[] { "저장매체", "보안시스템 설치 확인", "X", "Windows\\CurrentVersion\\Uninstall" });
-            leftTopDt.Rows.Add(new string[] { "", "보안시스템 해지 확인", "X", "Windows\\CurrentVersion\\Uninstall" });
+            leftTopDt.Rows.Add(new string[] { "운영체제", "운영체제 최신버전 확인", "X", "Windows\\CurrentVersion\\WindowsUpdate" });
+
+
+            leftBottomDt.Rows.Add(new string[] { "운영체제", "사용자 인증방식 복잡 정도 확인", "X", "Windows\\CurrentVersion\\Uninstall" });
+            leftBottomDt.Rows.Add(new string[] { "", "보안시스템 해지 확인", "X", "Windows\\CurrentVersion\\Uninstall" });
 
             leftBottomDt.Rows.Add(new string[] { "저장매체", "(이동식)저장매체 연결 흔적 확인", "X", "Enum\\USBSTOR" });
-            leftBottomDt.Rows.Add(new string[] { "", "고정형 저장장치 연결 흔적 확인", "O", "Enum\\SCSI" });
+            leftBottomDt.Rows.Add(new string[] { "", "고정형 저장장치 연결 흔적 확인", "X", "Enum\\SCSI" });
 
+            leftBottomDt.Rows.Add(new string[] { "", "응용 프로그램 최신버전 확인", "X", "SYSTEM\\ControlSet001\\Enum\\ROOT" });
+            leftBottomDt.Rows.Add(new string[] { "", "보안시스템 해지 확인", "X", "Windows\\CurrentVersion\\Uninstall" });
 
-            rightTopDt.Rows.Add(new string[] { "운영체제", "사용자 비밀번호 설정확인", "O", "Services\\Netlogon\\Parameters" });
-            rightTopDt.Rows.Add(new string[] { "", "운영체제 최신버전 확인", "O", "Windows\\CurrentVersion\\WindowsUpdate\\Trace" });
-            rightTopDt.Rows.Add(new string[] { "", "보안시스템 설치 확인", "O", "SOFTWARE\\Ahnlab\\V3Lite4" });
-            rightTopDt.Rows.Add(new string[] { "", "", "", "SOFTWARE\\Ahnlab\\Safe Transaction" });
-            rightTopDt.Rows.Add(new string[] { "", "", "", "SOFTWARE\\MarkAny\\ImageSAFERv5" });
-            rightTopDt.Rows.Add(new string[] { "", "", "", "SOFTWARE\\McAfee" });
+             
 
-            rightTopDt.Rows.Add(new string[] { "저장매체", "보안시스템 설치 확인", "O", "SOFTWARE\\Ahnlab\\V3Lite4" });
-            rightTopDt.Rows.Add(new string[] { "", "", "", "SOFTWARE\\McAfee" });
-            rightTopDt.Rows.Add(new string[] { "", "보안시스템 해지 흔적 확인", "O", "Windows\\CurrentVersion\\Uninstall" });
+            rightTopDt.Rows.Add(new string[] { "운영체제", "운영체제 최신버전 확인", "O", "Windows\\CurrentVersion\\WindowsUpdate\\Trace" });
+
+            rightBottomDt.Rows.Add(new string[] { "운영체제", "사용자 인증방식 복잡 정도 확인", "X", "Windows\\CurrentVersion\\Uninstall" });
+            rightBottomDt.Rows.Add(new string[] { "", "보안시스템 해지 확인", "X", "Windows\\CurrentVersion\\Uninstall" });
 
             for (int i = 0; i < usbPathList.Count; i++)
             {
@@ -285,7 +287,8 @@ namespace Collector
                 }
             }
 
-            
+            rightBottomDt.Rows.Add(new string[] { "", "응용 프로그램 최신버전 확인", "X", "SYSTEM\\ControlSet001\\Enum\\ROOT" });
+            rightBottomDt.Rows.Add(new string[] { "", "보안시스템 해지 흔적 확인", "X", "Windows\\CurrentVersion\\Uninstall" });
 
             LeftTopData.ItemsSource = leftTopDt.DefaultView;
             LeftBottomData.ItemsSource = leftBottomDt.DefaultView;

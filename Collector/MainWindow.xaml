@@ -16,7 +16,7 @@
 
     <Grid Background="LightGray" >
         <Grid Height="90" VerticalAlignment="Top" Margin="-1,0,1,0" Background="#FF79ACCF">
-            <TextBlock Text="기술보호 수준측정 시스템" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="36" Foreground="#DDFFFFFF" FontWeight="Bold"></TextBlock>
+            <TextBlock Text="산업 기술보호 수준측정 서비스" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="36" Foreground="#DDFFFFFF" FontWeight="Bold"></TextBlock>
             <StackPanel VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Right">
                 <materialDesign:PopupBox HorizontalAlignment="Right" Margin="10" PlacementMode="BottomAndAlignRightEdges" StaysOpen="False" Foreground="#DDFFFFFF">
                     <StackPanel Width="150">
@@ -73,9 +73,15 @@
         </Grid>
         <Grid x:Name="HomeContents" Width="950" Height="630" HorizontalAlignment="Right" VerticalAlignment="Bottom" Visibility="Collapsed" >
             <Grid x:Name="showScore" Width="950" Height="270" HorizontalAlignment="Right" VerticalAlignment="Top">
-                <TextBlock Text="testUser01 님의 PC 기술보호 수준은 90점입니다. "  HorizontalAlignment="Left" FontSize="30" FontWeight="Bold" VerticalAlignment="Top" Margin="20 30"/>
-                <TextBlock Text="지난 나의 점수 : 70점 "  HorizontalAlignment="Left" FontSize="30" FontWeight="Bold" VerticalAlignment="Top" Margin="100 120"/>
-                <TextBlock Text="재검사까지 10일 남음"  HorizontalAlignment="Left" FontSize="30" FontWeight="Bold" VerticalAlignment="Bottom" Margin="100 50"/>
+                <TextBlock Text="testUser01 님의 PC 기술보호 수준은 "  HorizontalAlignment="Left" FontSize="30" FontWeight="Bold" VerticalAlignment="Top" Margin="20 30"/>
+                <TextBlock Text="40점 "  HorizontalAlignment="Center" Foreground="Red"  FontSize="30" FontWeight="Bold" VerticalAlignment="Top" Margin="528,30,348,0"/>
+                <TextBlock Text="입니다. "  HorizontalAlignment="Right" FontSize="30" FontWeight="Bold" VerticalAlignment="Top" Margin="0,30,250,0"/>
+                <TextBlock Text="Warning"  HorizontalAlignment="Right" FontSize="40" Foreground="Red" FontWeight="Bold" VerticalAlignment="Top" Margin="60 20"/>
+                <TextBlock Text="지난 나의 점수 : "  HorizontalAlignment="Left" FontSize="30" FontWeight="Bold" VerticalAlignment="Top" Margin="100 120"/>
+                <TextBlock Text="30점"  Foreground="Red" HorizontalAlignment="Left" FontSize="30" FontWeight="Bold" VerticalAlignment="Top" Margin="328,120,0,0"/>
+                <TextBlock Text="재검사까지 "  HorizontalAlignment="Left" FontSize="30" FontWeight="Bold" VerticalAlignment="Bottom" Margin="100 50"/>
+                <TextBlock Text="10일" Foreground="#FFFF8E8E" HorizontalAlignment="Left" FontSize="30" FontWeight="Bold" VerticalAlignment="Bottom" Margin="256,0,0,50"/>
+                <TextBlock Text=" 남음"  HorizontalAlignment="Left" FontSize="30" FontWeight="Bold" VerticalAlignment="Bottom" Margin="318,0,0,50"/>
             </Grid>
             <Grid x:Name="showContent" Width="950" Height="360" HorizontalAlignment="Right" VerticalAlignment="Bottom">
                 <Grid x:Name="showGoodContent" Width="475" Height="360" HorizontalAlignment="Left" VerticalAlignment="Bottom">
@@ -106,7 +112,7 @@
                         <DataGrid.Columns>
                             <DataGridTextColumn
                             Binding="{Binding titleGood}"
-                            Header="구 분"
+                            Header="영 역"
                             IsReadOnly="True"
                             Width="100"/>
                             <DataGridTextColumn
@@ -144,7 +150,7 @@
                         <DataGrid.Columns>
                             <DataGridTextColumn
                             Binding="{Binding titleBad}"
-                            Header="구 분"
+                            Header="영 역"
                             IsReadOnly="True"
                             Width="100"/>
                             <DataGridTextColumn
@@ -157,19 +163,19 @@
                 </Grid>
             </Grid>
         </Grid>
-        <Grid x:Name="RateContents" Width="950" Height="630" HorizontalAlignment="Right" VerticalAlignment="Bottom" Visibility="Collapsed" >
+        <Grid x:Name="RateContents" Width="950" Height="630" HorizontalAlignment="Right" VerticalAlignment="Bottom" Visibility="Collapsed">
             <Grid x:Name="RateTopContents" Width="950" Height="100" HorizontalAlignment="Right" VerticalAlignment="Top">
                 <Grid x:Name="LeftTopContents" Width="500" Height="100" HorizontalAlignment="Left" VerticalAlignment="Top">
                     <TextBlock Text="사용자 : " Width="200" HorizontalAlignment="Left" FontSize="30" FontWeight="Bold" VerticalAlignment="Top" Margin="20 10"/>
                     <TextBlock Text="TestUser01" Width="250" HorizontalAlignment="Right" FontSize="30" FontWeight="Bold" VerticalAlignment="Top" Margin="20 10"/>
                     <TextBlock Text="측정일 : " Width="200" HorizontalAlignment="Left" FontSize="30" FontWeight="Bold" VerticalAlignment="Bottom" Margin="20 10"/>
-                    <TextBlock Text="2019.11.02" Width="250" HorizontalAlignment="Right" FontSize="30" FontWeight="Bold" VerticalAlignment="Bottom" Margin="20 10"/>
+                    <TextBlock Text="2019.11.05" Width="250" HorizontalAlignment="Right" FontSize="30" FontWeight="Bold" VerticalAlignment="Bottom" Margin="20 10"/>
                 </Grid>
                 <Grid x:Name="RightTopContents" Width="450" Height="100" HorizontalAlignment="Right" VerticalAlignment="Top">
                     <TextBlock Text="IP 주소 : " Width="200" HorizontalAlignment="Left" FontSize="30" FontWeight="Bold" VerticalAlignment="Top" Margin="20 10"/>
                     <TextBlock Text="192.168.0.1" Width="220" HorizontalAlignment="Right" FontSize="30" FontWeight="Bold" VerticalAlignment="Top" Margin="20 10"/>
                     <TextBlock Text="결과 : " Width="200" HorizontalAlignment="Left" FontSize="30" FontWeight="Bold" VerticalAlignment="Bottom" Margin="20 10"/>
-                    <TextBlock Text="90점" Width="220" HorizontalAlignment="Right" FontSize="30" FontWeight="Bold" VerticalAlignment="Bottom" Margin="20 10"/>
+                    <TextBlock Text="40점" Width="220" Foreground="Red" HorizontalAlignment="Right" FontSize="30" FontWeight="Bold" VerticalAlignment="Bottom" Margin="20 10"/>
                 </Grid>
             </Grid>
             <Grid x:Name="RateMainContents" Width="950" Height="530" HorizontalAlignment="Right" VerticalAlignment="Bottom">
@@ -198,7 +204,7 @@
                     <DataGrid.Columns>
                         <DataGridTextColumn
                             Binding="{Binding Title}"
-                            Header="구분"
+                            Header="영역"
                             Width="100"
                             IsReadOnly="True">
                         </DataGridTextColumn>
@@ -214,12 +220,12 @@
                             Width="70"/>
                         <DataGridTextColumn
                             Binding="{Binding Path}"
-                            Header="경로"/>
+                            Header="디지털 흔적"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </Grid>
         </Grid>
-        <Grid x:Name="FixContents" Width="950" Height="630" HorizontalAlignment="Right" VerticalAlignment="Bottom" Visibility="Collapsed">
+        <Grid x:Name="FixContents" Width="950" Height="630" HorizontalAlignment="Right" VerticalAlignment="Bottom" Visibility="Collapsed" >
             <Grid x:Name="GoodContents" Width="950" Height="300" HorizontalAlignment="Right" VerticalAlignment="Top">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="43*"/>
@@ -252,7 +258,7 @@
                     <DataGrid.Columns>
                         <DataGridTextColumn
                             Binding="{Binding Title}"
-                            Header="구분"
+                            Header="영역"
                             Width="100"
                             IsReadOnly="True"/>
                         <DataGridTextColumn
@@ -262,7 +268,7 @@
                             IsReadOnly="True"/>
                         <DataGridTextColumn
                             Binding="{Binding Path}"
-                            Header="경로"
+                            Header="디지털 흔적"
                             Width="650"/>
                     </DataGrid.Columns>
                 </DataGrid>
@@ -294,7 +300,7 @@
                     <DataGrid.Columns>
                         <DataGridTextColumn
                             Binding="{Binding Title}"
-                            Header="구분"
+                            Header="영역"
                             Width="100"
                             IsReadOnly="True"/>
                         <DataGridTextColumn
@@ -304,7 +310,7 @@
                             IsReadOnly="True"/>
                         <DataGridTextColumn
                             Binding="{Binding Path}"
-                            Header="경로"
+                            Header="디지털 흔적"
                             Width="300"/>
                         <DataGridTextColumn
                             Binding="{Binding Advice}"
@@ -321,7 +327,7 @@
                     <RowDefinition Height="32*"/>
                 </Grid.RowDefinitions>
                 <TextBlock Margin="160,6,0,335" Text="지난 평가 결과" Foreground="DimGray" FontSize="20" FontWeight="Bold"  HorizontalAlignment="Left"></TextBlock>
-                <TextBlock Margin="0,6,10,335" Text="70점" Foreground="DimGray" FontSize="20" FontWeight="Bold"  HorizontalAlignment="Right"></TextBlock>
+                <TextBlock Margin="0,6,10,335" Text="30점" Foreground="Red" FontSize="20" FontWeight="Bold"  HorizontalAlignment="Right"></TextBlock>
                 <DataGrid x:Name="LeftTopData" Margin="10,55,10,27"
                           AutoGenerateColumns="False"
                           SelectionMode="Single"
@@ -348,7 +354,7 @@
                     <DataGrid.Columns>
                         <DataGridTextColumn
                             Binding="{Binding Title}"
-                            Header="구분"
+                            Header="영역"
                             Width="100"
                             IsReadOnly="True"/>
                         <DataGridTextColumn
@@ -362,7 +368,7 @@
                             Width="70"/>
                         <DataGridTextColumn
                             Binding="{Binding Path}"
-                            Header="경로"/>
+                            Header="디지털 흔적"/>
                     </DataGrid.Columns>
                 </DataGrid>
                 <TextBlock Margin="10,340,0,263" Text="미개선사항" Foreground="DimGray" FontSize="20" FontWeight="Bold"  HorizontalAlignment="Left" Grid.RowSpan="2"/>
@@ -393,7 +399,7 @@
                     <DataGrid.Columns>
                         <DataGridTextColumn
                             Binding="{Binding Title}"
-                            Header="구분"
+                            Header="영역"
                             Width="100"
                             IsReadOnly="True"/>
                         <DataGridTextColumn
@@ -407,13 +413,13 @@
                             Width="70"/>
                         <DataGridTextColumn
                             Binding="{Binding Path}"
-                            Header="경로"/>
+                            Header="디지털 흔적"/>
                     </DataGrid.Columns>
                 </DataGrid>
                 <TextBlock Margin="10,29,0,302" Foreground="DimGray" FontSize="20" FontWeight="Bold"  HorizontalAlignment="Left"><Run Text="개선사항"/><LineBreak/><Run/></TextBlock>
             </Grid>
             <Grid x:Name="BottomContents" Width="475" Height="630" HorizontalAlignment="Right" VerticalAlignment="Bottom">
-                <TextBlock Margin="0,6,10,599" Text="90점" Foreground="DimGray" FontSize="20" FontWeight="Bold"  HorizontalAlignment="Right"></TextBlock>
+                <TextBlock Margin="0,6,10,599" Text="40점" Foreground="Red" FontSize="20" FontWeight="Bold"  HorizontalAlignment="Right"></TextBlock>
                 <DataGrid x:Name="RightTopData" Margin="10,55,10,296"
                           AutoGenerateColumns="False"
                           SelectionMode="Single"
@@ -440,7 +446,7 @@
                     <DataGrid.Columns>
                         <DataGridTextColumn
                             Binding="{Binding Title}"
-                            Header="구분"
+                            Header="영역"
                             Width="110"
                             IsReadOnly="True"/>
                         <DataGridTextColumn
@@ -454,7 +460,7 @@
                             Width="70"/>
                         <DataGridTextColumn
                             Binding="{Binding Path}"
-                            Header="경로"/>
+                            Header="디지털 흔적"/>
                     </DataGrid.Columns>
                 </DataGrid>
                 <DataGrid x:Name="RightBottomData" Margin="10,0,10,8"
@@ -484,7 +490,7 @@
                     <DataGrid.Columns>
                         <DataGridTextColumn
                             Binding="{Binding Title}"
-                            Header="구분"
+                            Header="영역"
                             Width="110"
                             IsReadOnly="True"/>
                         <DataGridTextColumn
@@ -498,7 +504,7 @@
                             Width="70"/>
                         <DataGridTextColumn
                             Binding="{Binding Path}"
-                            Header="경로"/>
+                            Header="디지털 흔적"/>
                     </DataGrid.Columns>
                 </DataGrid>
                 <TextBlock Margin="166,6,0,599" Foreground="DimGray" FontSize="20" FontWeight="Bold"  HorizontalAlignment="Left"><Run Text="이번 평가 결과"/><LineBreak/><Run/></TextBlock>
