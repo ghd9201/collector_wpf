@@ -19,3 +19,4 @@ E:\forensics\Collector2\Collector\obj\Release\Collector.csproj.CoreCompileInputs
 E:\forensics\Collector2\Collector\obj\Release\Collector.csproj.CopyComplete
 E:\forensics\Collector2\Collector\obj\Release\Collector.exe
 E:\forensics\Collector2\Collector\obj\Release\Collector.pdb
+E:\forensics\Collector2\Collector\obj\Release\Collector.csprojAssemblyReference.cache
